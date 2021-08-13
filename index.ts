@@ -51,7 +51,7 @@ class CoImpl implements Co {
     return isFunction(generator) ? generator() : generator;
   }
 
-  exec<T>(generator: any, callback?: () => void) {
+  exec(generator: any, callback?: () => void) {
     if (isGeneratorFunction(generator) || isGenerator(generator)) {
       generator = this.intoGenerator(generator);
       this.poll(generator, callback);
