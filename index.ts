@@ -1,5 +1,5 @@
 export interface Co {
-  exec<T>(cb: () => Generator<never, T, unknown>): void;
+  exec(generator: any, callback?: () => void);
   all(cbs: any[]): any[];
 }
 
