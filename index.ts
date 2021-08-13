@@ -32,13 +32,12 @@ class CoImpl implements Co {
       });
     } else if (isPromise(value)) {
       const promise = value as any;
-      promise.then((val) => {
+      promise.then().then((val) => {
         this.ctx = val;
         if (isDone) return;
         this.poll(generator, null, done);
         callback?.();
       });
-      promise.then();
     } else {
       this.ctx = value;
       if (isDone) return;
