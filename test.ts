@@ -8,7 +8,7 @@ function* g() {
   return 22;
 }
 
-co.exec(function* () {
+co(function* () {
   console.log("22");
   yield sleep(1000);
   const data = yield g;

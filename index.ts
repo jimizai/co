@@ -1,6 +1,5 @@
 export interface Co {
   exec(generator: any, callback?: () => void);
-  all(cbs: any[]): any[];
 }
 
 const isObject = (val: unknown): val is object =>
@@ -56,10 +55,7 @@ class CoImpl implements Co {
       this.poll(generator, callback);
     }
   }
-
-  all(cbs: any[]): any[] {
-    throw new Error("Method not implemented.");
-  }
 }
 
-export const co = new CoImpl();
+const instance = new CoImpl();
+export const co = instance.exec.bind(instance);
